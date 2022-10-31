@@ -33,18 +33,17 @@ function startTimer () {
         appendSeconds.innerHTML = seconds;
     }
 }
-startBtn.onclick = function() { //funktionen börjar köra när man trycker på start
+function startButton() { //funktionen börjar köra när man trycker på start
     interval = setInterval(startTimer, 10);
 };
 
-stopBtn.onclick = function() { //funktionen börjar köra när man trycker på stop
+function stopButton() { //funktionen börjar köra när man trycker på stop
     clearInterval(interval);
 };
 
-resetBtn.onclick = function() {
-    clearInterval(interval);
-    tens = "00";
+function resetButton() {
     seconds = "00";
+    tens = "00";
     appendSeconds.innerHTML = seconds;
     appendTens.innerHTML = tens; 
 };
