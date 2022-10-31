@@ -4,12 +4,16 @@
     box-sizing: border-box;
   }
   body {
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(61, 27, 183);
+  }
+  img {
+    width: 500px;
+    height: 80%;
   }
 
   #stopwatch-container {
-    height: 100%;
-    width: 1000px;
+    height: 700px;
+    width: 1200px;
     margin: 10% auto;
     padding: 5% 0;
     text-align: center;
