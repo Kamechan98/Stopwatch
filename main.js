@@ -7,8 +7,9 @@ let tens = 00;
 let appendTens = document.getElementById('tens');
 let appendSeconds = document.getElementById('seconds');
 let interval = null; //till för att lagra timer-värden
+let running = false;
 
-// startBtn.addEventListener('click', start);
+
 // stopBtn.addEventListener('click', stop);
 // resetBtn.addEventListener('click', reset);
 
@@ -16,7 +17,7 @@ let interval = null; //till för att lagra timer-värden
 
 function startTimer () {
     tens++; // Tens är lika med 0, så varje gång den här funktion kör plussar den på 1 på tens
-
+    running = true;
     if (tens < 9) {
         appendTens.innerHTML = "0" + tens;
     }
@@ -34,14 +35,23 @@ function startTimer () {
     }
 }
 function startButton() { //funktionen börjar köra när man trycker på start
-    interval = setInterval(startTimer, 10);
-};
+    
+    if(!running){
+        interval = setInterval(startTimer, 10); // startBtn.addEventListener('click', start);
+    }
+  
+    
+} 
+
+// TO DO: Skapa boolean som avinstillarerar startbutton
 
 function stopButton() { //funktionen börjar köra när man trycker på stop
+    running = false;
     clearInterval(interval);
 };
 
 function resetButton() {
+    running = false;
     seconds = "00";
     tens = "00";
     appendSeconds.innerHTML = seconds;
