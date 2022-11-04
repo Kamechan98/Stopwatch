@@ -29,6 +29,7 @@
     font-size: 100px;
     margin-bottom: 10px;
 }
+#minutes,
 #seconds, 
 #tens {
   font-size: 2em;

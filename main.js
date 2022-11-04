@@ -2,10 +2,12 @@ const startBtn = document.getElementById("button-start");
 const stopBtn = document.getElementById("button-stop");
 const resetBtn = document.getElementById("reset-button");
 
+let minutes = 00;
 let seconds = 00;
 let tens = 00;
 let appendTens = document.getElementById('tens');
 let appendSeconds = document.getElementById('seconds');
+let appendMinutes = document.getElementById('minutes');
 let interval = null; //till för att lagra timer-värden
 let running = false;
 
@@ -33,6 +35,17 @@ function startTimer () {
     if (seconds > 9) {
         appendSeconds.innerHTML = seconds;
     }
+    if (seconds > 59) {
+        minutes++;
+        appendMinutes.innerHTML = "0" + minutes;
+        seconds = 0;
+        appendSeconds.innerHTML = minutes;
+        appendSeconds.innerHTML = "0" + 0;
+    }
+    if(minutes > 59) {
+        appendMinutes.innerHTML = minutes;
+    }
+
 }
 function startButton() { //funktionen börjar köra när man trycker på start
     
@@ -52,8 +65,10 @@ function stopButton() { //funktionen börjar köra när man trycker på stop
 
 function resetButton() {
     running = false;
+    minutes = "00";
     seconds = "00";
     tens = "00";
+    appendMinutes.innerHTML = minutes;
     appendSeconds.innerHTML = seconds;
     appendTens.innerHTML = tens; 
 };
